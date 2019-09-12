@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Beat our Essay grading AI!</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        
+        <link rel="stylesheet" href="style.css" >
+        <!-- <link rel="stylesheet" href="s2.css" > -->
+        
+        <script src="script.js"></script>
+        <script src="dropdown.js"></script>
+        <script src="s2.js"></script>
+
+    </head>
+    
+    <body > 
+
+        <div class="container">
+
+        	<div align="center">
+                   <!-- <img style="max-width:3%; max-height:2%;" src="images/analytics.png" />  -->
+                   <font size="7" color="white">Beat our Essay Grading AI!</font>
+	        </div>
+
+            <!-- <div class="imagebg"></div> -->
+            <div class="row " style="margin-top: 50px">
+                <div class="col-md-6 col-md-offset-3 form-container">
+                	<h2>Prompt</h2> 
+
+	                <select id="prompts">
+                      <option value="1" selected="selected">Prompt-1</option>
+                      <option value="2">Prompt-2</option>
+                      <option value="3">Prompt-3</option>
+                      <option value="4">Prompt-4</option>
+                      <option value="5">Prompt-5</option>
+                      <option value="6">Prompt-6</option>
+                      <option value="7">Prompt-7</option>
+                      <option value="8">Prompt-8</option>
+                  </select>
+                  <p id='prompt_q' style="display:none"></p>
+                  <button onclick="findDay()">Get Prompt Question</button>
+
+                    <h2>Essay Input</h2> 
+                    <p> Please provide an essay related to the prompt below: </p>
+                    <form role="form" method="post" id="main_form">
+                        
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label for="essay"> Essay:</label>
+                                <textarea class="form-control" id='essay_text' type="textarea" name="essay" id="essay" placeholder="Your Essay Here" maxlength="6000" rows="7"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <button type="submit" class="btn btn-lg btn-warning btn-block" >Submit </button>
+                                <button type="reset" id="reset" class="btn btn-lg btn-warning btn-block" onclick="clearText()" >Reset </button>
+
+                            </div>
+                        </div>
+                    </form>
+                    <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Essay posted successfully!</h3> </div>
+                    <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
+<!-- 
+                    <button class="reset" class="btn btn-lg btn-warning btn-block" onclick="clearText()" style="display: none" >Do Another Essay </button> -->
+                    <div id="score" style="width:100%; height:100%; display:none; "> Hi! Your Score is: </div>
+
+                    <div id="attention_viz" style="width:100%; height:100%; display:none; "> Here are the attention scores for your essay learnt by our model:
+                    </div>
+
+                    <div id="feedback_form" style="width:100%; height:100%; display:none; "> 
+                      Rate approximately your score to this essay.
+                    
+                    </div>
+                      <p id='feed_q' style="display:none">Chosen Score is: </p>
+                      <button id='score_sub' style="display:none" onclick="findFeed()">Submit Score</button>
+
+                    
+                    <div id="reorder_list" style="display:none; "> Pl reorder your sentences in decreasing order of importance:
+                     
+                    </div>
+
+                    <button id='done' class="btn btn-lg btn-warning btn-block" onclick="doneFn()" style="display:none" >Done </button>
+                                
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
